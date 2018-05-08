@@ -8,7 +8,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>What's On</h1>
+    <header>
+        <h1>What's On</h1>
+    </header>
+    <div class="container">
+        <div class="genre">       
+            <form action="#">
+                <input type="radio" name="genre" value="35"> Comedy
+
+                <input type="radio" name="genre" value="18"> Drama
+
+                <input type="radio" name="genre" value="10751"> Family
+
+                <input type="radio" name="genre" value="10749"> Romance
+
+                <input type="radio" name="genre" value="878"> Sci-Fi
+
+                <input type="radio" name="genre" value="53"> Thiller
+            </form>
+        </div> 
+    </div>
+    
+        <div class="year">
+            <p>Choose a Release Year:</p>
+            <input type="range" min="1980" max="2018">
+        </div>
+
+        <div class="container">
+                <!-- this is where all our results will show up -->
+             <div class="tv-results"id="tv-results"></div>   
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
