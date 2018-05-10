@@ -9,47 +9,43 @@
 </head>
 <body>
     <header>
-        <h1>What's On</h1>
+        <div class="container"><h1>What's On</h1></div>
     </header>
-    <div class="container">
-        <div class="genre">       
-            <form action="#" class="genreForm">
-                <input type="radio" name="genre" value=35>
-                <label for="genre" value="comedy">Comedy</label>
+    <div class="container">      
+        <form action="#" class="form">
+        <!-- genre -->
+        <fieldset class="genre">
+            <input type="radio" name="genre" id="comedy" value=35>
+            <label for="comedy" value="comedy">Comedy</label>
 
-                <input type="radio" name="genre" value="18">
-                <label for="genre" value="drama">Drama</label>
+            <input type="radio" name="genre" id="drama" value="18">
+            <label for="drama" value="drama">Drama</label>
 
-                <input type="radio" name="genre" value="10751">
-                <label for="genre" value="family">Family</label>
+            <input type="radio" name="genre" id="family" value="10751">
+            <label for="family" value="family">Family</label>
 
-                <input type="radio" name="genre" value="10749">
-                <label for="genre" value="romance">Romance</label>
-                
-                <input type="radio" name="genre" value="878">
-                <label for="genre" value="scifi">Sci-Fi</label>
+            <input type="radio" name="genre" id="romance" value="10749">
+            <label for="romance" value="romance">Romance</label>
+            
+            <input type="radio" name="genre" id="scifi" value="878">
+            <label for="scifi" value="scifi">Sci-Fi</label>
 
-                <input type="radio" name="genre" value="53">
-                <label for="genre" value="thriller">Thriller</label>
-
-                <input type="submit">
-            </form>
-        </div> 
-    </div>
-    
-        <div class="year">
-            <p>Choose a Release Decade:</p>
-            <form action="#" class="decadeForm">  
-                <select name="decade" class="decadeForm">
-                    <option value="80">80's </option>
-                    <option value="90">90's </option>
-                    <option value="2000">2000's </option>
-                    <option value="2010">2010's </option>
+            <input type="radio" name="genre" id="thriller" value="53">
+            <label for="thriller" value="thriller">Thriller</label>
+        </fieldset>
+        <!-- year -->
+            <!-- selecting decade -->
+            <fieldset class="year center">
+                <select name="decade" class="decadeForm" id="decadeForm">
+                    <option value="">Please select decade</option>
+                    <option value="80">80's</option>
+                    <option value="90">90's</option>
+                    <option value="2000">2000's</option>
+                    <option value="2010">2010's</option>
                 </select>
-            </form>
-
-            <form action="#" class="yearForm">
-                <select name="year" class="yearForm 80 hidden">
+    
+                <!-- selecting 80s -->
+                <select name="year" class="yearForm hidden" id="year80">
                     <option value="1980">1980</option>
                     <option value="1981">1981</option>
                     <option value="1982">1982</option>
@@ -61,10 +57,10 @@
                     <option value="1988">1988</option>
                     <option value="1989">1989</option>
                 </select>
-          
-            
-                <select name="year" class="yearForm 90 hidden">
-                    <option value="1990">1990 </option>
+                
+                <!-- selecting 90s -->
+                <select name="year" class="yearForm hidden" id="year90">
+                    <option value="1990">1990</option>
                     <option value="1991">1991</option>
                     <option value="1992">1992</option>
                     <option value="1993">1993</option>
@@ -75,8 +71,9 @@
                     <option value="1998">1998</option>
                     <option value="1999">1999</option>
                 </select>
-           
-                <select name="year" class="yearForm 2000 hidden">
+    
+                <!-- selecting 2000s -->
+                <select name="year" class="yearForm hidden" id="year2000">
                     <option value="2000">2000</option>
                     <option value="2001">2001</option>
                     <option value="2002">2002</option>
@@ -88,8 +85,9 @@
                     <option value="2008">2008</option>
                     <option value="2009">2009</option>
                 </select>
-       
-                <select name="year" class="yearForm 2010 hidden">
+                
+                <!-- selecting 2010s -->
+                <select name="year" class="yearForm hidden" id="year2010">
                     <option value="2010">2010</option>
                     <option value="2011">2011</option>
                     <option value="2012">2012</option>
@@ -100,20 +98,11 @@
                     <option value="2017">2017</option>
                     <option value="2018">2018</option>
                 </select>
-            </form>
+            </fieldset>
 
-
-
-
-        </div>
-
-
-
-
-
-
-
-
+            <input type="submit">
+        </form>
+    </div>
         <div class="container">
                 <!-- this is where all our results will show up -->
              <div class="tv-results" id="tv-results"></div>   
