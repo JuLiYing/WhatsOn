@@ -32,8 +32,8 @@ app.getTV = function (selectedGenre, selectedYear){
     }
 }).then(res => {
     const tvObjects = res.results;
-    console.log(tvObjects);
-    app.displayTV(tvObjects);
+    const topThree = tvObjects.slice(1,4);
+    app.displayTV(topThree);
 });
 };
 
@@ -44,14 +44,14 @@ app.getTV = function (selectedGenre, selectedYear){
 app.displayTV = function (tv) {
     tv.forEach((tvShow) => {
         const $poster = $('<img>')
-        .attr('src', `${app.baseURL}${tvShow.poster_path}`);
+            .attr('src', `https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`);
         const $title = $('<h2>').text(tvShow.name);
         const $overview = $('<p>').text(tvShow.overview);
         const $released = $('<h3>').text(tvShow.first_air_date);
-        const $TVContainer = $('<div>').append($poster, $title, $overview, $released);
+        const $TVContainer = $('<div>').append($poster, $title, $released, $overview);
         $('#tv-results').append($TVContainer);
     })
-    console.log($TVContainer);
+    // console.log($TVContainer);
     
 };
 // let selectedGenre;
@@ -71,16 +71,7 @@ app.events = function () {
         
         app.getTV(selectedGenre, selectedYear);
 
-
-        // Gather two parameters and put in object called userSelection
-        // userSelection = {
-        //     genre: selectedGenre,
-        //     year: selectedYear
-        // }
-
-        
-        
-        // console.log(userSelection);     
+        $('.form').hide();
     });
 
 // Toggle the class of hidden on the year dropdown corresponding to the decade dropdown

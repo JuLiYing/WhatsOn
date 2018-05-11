@@ -7,13 +7,26 @@ html {
   margin: 0 auto;
   width: 100%;
   max-width: 1920px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: normal;
+}
+
+body { 
+    font-size: 2.5rem;
+    color: white;
+    line-height: 1.6;
+    background-image: $color;
+    background-position: cover;
 }
 
 .container {
-//    width: 79.68%;
-    max-width: 1530px;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    max-width: 600px;
 }
 
 .center {
@@ -27,20 +40,14 @@ header {
     margin: 5% auto;
 }
 
-body { 
-    font-size: 2.5rem;
-    color: white;
-    line-height: 1.6;
-    background-image: $color;
-    background-repeat: no-repeat;
-    background-position: cover;
-    // height: 100vh;
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 form select.hidden {
     display: none;
 }
-
 
 fieldset {
     display: flex;
@@ -83,7 +90,18 @@ input[type=submit],
     margin: 0 auto;
 }
 
-.year{
+.year {
+    flex-direction: column;
     justify-content: space-between;
     margin: 0 auto;
+}
+
+.tv-results {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    div {
+        padding: 1%;
+    }
 }
