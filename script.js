@@ -33,6 +33,7 @@ app.getTV = function (selectedGenre, selectedYear){
 }).then(res => {
     const tvObjects = res.results;
     const topThree = tvObjects.slice(1,4);
+    $('.rec').html(`<h1>What about...</h1>`)
     app.displayTV(topThree);
 });
 };
@@ -43,7 +44,7 @@ app.getTV = function (selectedGenre, selectedYear){
 // Method to display objects
 app.displayTV = function (tv) {
     tv.forEach((tvShow) => {
-        const $poster = $('<img>')
+        const $poster = $('<img class="image-container">')
             .attr('src', `https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`);
         const $title = $('<h2>').text(tvShow.name);
         const $overview = $('<p>').text(tvShow.overview);

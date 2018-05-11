@@ -26,7 +26,6 @@ body {
 
 img {
     width: 100%;
-    max-width: 600px;
 }
 
 .center {
@@ -35,9 +34,10 @@ img {
     align-items: center;
 }
 
+// HEADER STYLES
 header {
     text-align: center;
-    margin: 5% auto;
+    margin: 2% auto;
 }
 
 h1 {
@@ -45,6 +45,7 @@ h1 {
     font-weight: bold;
 }
 
+//FORM STYLES
 form select.hidden {
     display: none;
 }
@@ -75,33 +76,64 @@ input[type=radio] {
 
 input:checked + label {
     border:3px solid white;
+    background: midnightblue;
 }   
 
 input:focus + label,
-label:hover,
-input[type=submit]{
+label:hover {
     color: white;
     background: midnightblue;
-}
-
-input[type=submit], 
-.year select {
-    width: 25%;
-    margin: 0 auto;
 }
 
 .year {
     flex-direction: column;
     justify-content: space-between;
     margin: 0 auto;
+
+    select{
+        appearance: none;
+        width: 30%;
+        height: 50px;        
+        text-align: center;
+        background: url('noun_1453451_cc.png');
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        border: 2px solid white;
+        color: white;
+        margin: 5px;
+    }
 }
 
+input[type=submit] {
+    width: 30%;
+    margin: 0 auto;
+    height: 50px;  
+    background: none;
+    border: 2px solid white;
+    color: white;
+}
+
+// RESULT CONTAINER STYLES
 .tv-results {
     width: 100%;
     display: flex;
     justify-content: center;
-    border: 1px solid black;
+    border: none;;
     div {
         padding: 1%;
     }
+}
+
+.image-container{
+    height: 600px;
+    max-width: 500px;
+}
+
+.pick-again {
+    
+}
+// FOOTER
+footer {
+    border-top: 1px dotted white;
+    text-align: center;  
 }
