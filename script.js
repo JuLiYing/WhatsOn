@@ -9,7 +9,6 @@
 // Put this as parameter in app.getTV function app.getTV = function (genre, year)   
 
 // Use filter method to filter top 3 choices
-// Display all information in array onto HTML
 
 
 //Main app object
@@ -18,41 +17,47 @@ const app = {};
 app.baseURL = 'https://api.themoviedb.org/3';
 app.apiKey = '4596c01cc129c0cbf8d2d1ac4cf4b6fe';
 
+// Method for requesting information from MovieDB API
 app.getTV = function (selectedGenre, selectedYear){
-    console.log(selectedGenre, selectedYear);
-    
     $.ajax({
-      url: `${app.baseURL}/discover/tv`,
-      method: "GET",
-      dataType: "json",
-      data: {
+        url: `${app.baseURL}/discover/tv`,
+        method: "GET",
+        dataType: "json",
+        data: {
         api_key: app.apiKey,
         language: "en-US",
         sort_by: "popularity.desc",
-        with_genre: selectedGenre, // genre parameter
+        with_genres: selectedGenre, // genre parameter
         first_air_date_year: selectedYear // year parameter
-      }
-    }).then(res => {
-        const tvObjects = res.results;
-      console.log(tvObjects);
-        app.displayTV(tvObjects);
-    });
+    }
+}).then(res => {
+    const tvObjects = res.results;
+    console.log(tvObjects);
+    app.displayTV(tvObjects);
+});
 };
 
 
-// Create method to display objects app.displayTV(), this takes parameter of tv
-// Use the method tv.map(tvShow) to run through object and take specific information: tvShow.title, tvShow.poster_path, tvShow.overview, tvShow.release_date AND create new array with this information.
+// Use the method tv.forEach(tvShow) to run through object and take specific information: tvShow.title, tvShow.poster_path, tvShow.overview, tvShow.release_date
+// Display all information in array onto HTML
+// Method to display objects
 app.displayTV = function (tv) {
     tv.forEach((tvShow) => {
-        const $poster = $('<img>').attr('src', tvShow.poster_path.url);
-        const $title = $('<h2>').text(tvShow.title);
+        const $poster = $('<img>')
+        .attr('src', `${app.baseURL}${tvShow.poster_path}`);
+        const $title = $('<h2>').text(tvShow.name);
         const $overview = $('<p>').text(tvShow.overview);
-        const $released = $('<h3>').text(tvShow.release_date);
+        const $released = $('<h3>').text(tvShow.first_air_date);
         const $TVContainer = $('<div>').append($poster, $title, $overview, $released);
         $('#tv-results').append($TVContainer);
     })
+    console.log($TVContainer);
+    
 };
-// Create event listeners that retrieve user input for both parameters: genre and year
+// let selectedGenre;
+// let selectedYear;
+
+// Event listeners to retrieve user input for parameters: genre and year
 app.events = function () {
     $('.form').on('submit', function (e) {
         // Prevent page refresh on submit
@@ -63,13 +68,19 @@ app.events = function () {
         // Collect user input for year and store in variable called selectedYear    
         const selectedYear = $('.yearForm:not(.hidden)').val();
         // console.log(selectedYear);       
-    
-        userSelection = {
-            genre: selectedGenre,
-            year: selectedYear
-        }
         
-        console.log(userSelection);     
+        app.getTV(selectedGenre, selectedYear);
+
+
+        // Gather two parameters and put in object called userSelection
+        // userSelection = {
+        //     genre: selectedGenre,
+        //     year: selectedYear
+        // }
+
+        
+        
+        // console.log(userSelection);     
     });
 
 // Toggle the class of hidden on the year dropdown corresponding to the decade dropdown
@@ -82,7 +93,7 @@ $('#decadeForm').change(function () {
     });
 }
 
-// STRETCH GOALS PORTION - GETTING SIMILAR TITLES (get similar TV shows method url: https://developers.themoviedb.org/3/tv/get-similar-tv-shows)
+// STRETCH GOALS - GETTING SIMILAR TITLES (get similar TV shows method url: https://developers.themoviedb.org/3/tv/get-similar-tv-shows)
 app.getSimilar = function(tv_id){
     return $.ajax({
         url: `${baseURL}/tv/${tv_id}/similar`,
@@ -95,10 +106,6 @@ app.getSimilar = function(tv_id){
     })
 };
 
-
-
-
-
 // Init method for storing methods needed on initial load
 app.init = function () {
    app.events();
@@ -107,6 +114,7 @@ app.init = function () {
 // Document ready
 $(function () {
     app.init();
+    // app.getTV();
 });
 
 
