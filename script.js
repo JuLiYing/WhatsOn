@@ -110,7 +110,6 @@ $(function () {
 });
 
 
-
 // "genres": {
 //     Comedy: 35,
 //     Drama: 18,

@@ -1,21 +1,36 @@
 @import 'setup.scss';
 
-$color: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+// COMMON VARIABLES
+$background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+$josefin: 'Josefin Sans', sans-serif;
 
+// // MIXINS
+// @mixin for-phone-only {
+//   @media (max-width: 599px) { @content; }
+// }
+// @mixin for-tablet-portrait-up {
+//   @media (min-width: 600px) { @content; }
+// }
+// @mixin for-tablet-landscape-up {
+//   @media (min-width: 900px) { @content; }
+// }
+
+// GENERAL STYLES
 html {
   font-size: 62.5%;
   margin: 0 auto;
   width: 100%;
   max-width: 1920px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: $josefin;
   font-weight: normal;
+    color: white;
 }
 
 body { 
     font-size: 2.5rem;
     color: white;
     line-height: 1.6;
-    background-image: $color;
+    background-image: $background;
     background-position: cover;
 }
 
@@ -43,9 +58,10 @@ header {
 h1 {
     text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: 3px;
 }
 
-//FORM STYLES
+//FORM AND INPUT STYLES
 form select.hidden {
     display: none;
 }
@@ -64,7 +80,7 @@ input[type=radio] {
 .genre label {
     position: relative;
     display: inline-block;
-    background: none;
+    background: rgba(255, 255, 255, 0.1);
     border: 3px solid white;
     display: flex;
     justify-content: center;
@@ -74,6 +90,9 @@ input[type=radio] {
     margin: 25px auto;
 }
 
+.genre span {
+    display: block;
+}
 input:checked + label {
     border:3px solid white;
     background: midnightblue;
@@ -85,6 +104,18 @@ label:hover {
     background: midnightblue;
 }
 
+@media (max-width: 940px) {
+    .genre { 
+        flex-direction: column;
+    }
+
+    .genre label {
+        width: 60%;
+    }
+}
+    
+
+// DROPDOWN STYLES
 .year {
     flex-direction: column;
     justify-content: space-between;
@@ -124,16 +155,30 @@ input[type=submit] {
     }
 }
 
+// added for maximum amount of characters for the overview text to ensure consistincy
+.tv-results p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100ch;
+
+}
+
 .image-container{
     height: 600px;
     max-width: 500px;
 }
 
-.pick-again {
+// BUTTON STYLES
+// .pick-again {
     
-}
-// FOOTER
+// }
+
+// .random
+
+// FOOTER STYLES
 footer {
     border-top: 1px dotted white;
     text-align: center;  
 }
+
+
