@@ -26,7 +26,7 @@
         <form action="#" class="form">
     <!-- year -->
         <!-- Dropdown to select decade -->
-            <fieldset class="year center">
+            <div class="year center fieldset">
                 <select name="decade" class="decadeForm" id="decadeForm">
                     <option value="">Please select decade</option>
                     <option value="80">80's</option>
@@ -90,46 +90,60 @@
                     <option value="2017">2017</option>
                     <option value="2018">2018</option>
                 </select>
-            </fieldset>
+            </div>
             <!-- genre -->
-            <fieldset class="genre">
+            <fieldset class="genre fieldset">
+                
                 <input type="radio" name="genre" id="comedy" value=35>
-                <label for="comedy" value="comedy">Comedy</br> <i class="fas fa-smile fa-7x"></i></label>
+                <label for="comedy" value="comedy">Comedy<!-- <i class="fas fa-smile fa-7x"> </i>--></label>
 
                 <input type="radio" name="genre" id="drama" value="18">
-                <label for="drama" value="drama">Drama <i class="fas fa-star fa-7x"></i></label>
+                <label for="drama" value="drama">Drama <!-- <i class="fas fa-star fa-7x"></i> --></label>
 
                 <input type="radio" name="genre" id="family" value="10751">
-                <label for="family" value="family">Family <i class="fas fa-users fa-7x"></i></label>
+                <label for="family" value="family">Family <!-- <i class="fas fa-users fa-7x"></i> --></label>
 
                 <input type="radio" name="genre" id="romance" value="10749">
-                <label for="romance" value="romance">Romance <i class="fas fa-heart fa-7x"></i></label>
+                <label for="romance" value="romance">Romance <!-- <i class="fas fa-heart fa-7x"></i> --></label>
                 
                 <input type="radio" name="genre" id="scifi" value="878">
-                <label for="scifi" value="scifi">Sci-Fi <i class="fas fa-flask fa-7x"></i></label>
+                <label for="scifi" value="scifi">Sci-Fi <!-- <i class="fas fa-flask fa-7x"></i> --></label>
 
                 <input type="radio" name="genre" id="thriller" value="53">
-                <label for="thriller" value="thriller"> Thriller <i class="fas fa-balance-scale fa-7x"></i></label>
+                <label for="thriller" value="thriller"> Thriller <!-- <i class="fas fa-balance-scale fa-7x"></i> --></label>
             </fieldset>
 
-            <fieldset>
-                <input type="submit" value="Show me!">
-            </fieldset>
+            <div class="fieldset">
+                <input type="submit" value="Show me!" class="button center">
+            </div>
         </form>
     </div>
 
-
-    <!-- this is where all our results will show up -->
-        <div class="container results">
-            <div class="rec"></div>
-             <div class="tv-results" id="tv-results"></div>
-
-            <!-- link to get different results  -->
-            <a href="#" class="ramdon">Get New Results</a>
-
-             <!-- link to restart  -->
-             <a href="index.html" class="pick-again">Pick Again</a>  
+    <div class="container results">
+        <div class="rec">
+        <!-- title for top three results-->
         </div>
+        <div class="tv-results" id="tv-results">
+        <!-- top three results -->
+        </div>
+    </div>
+    <div class="container results">
+        <!-- button to show other three recommendations -->
+        <button class="button other center">Show others!</button>
+    </div>
+    
+    <div class="container results">
+        <div class="recOthers">
+        <!-- title for other three recommendations -->
+        </div>
+        <div class="tv-results" id="otherThree">
+        <!-- other three recommendations -->
+        </div>
+    </div>
+    <div class="container results">
+        <!-- link to restart -->
+        <a href="index.html" class="button pick-again center">Pick Again</a>
+    </div>
 
     <footer>
         <div class="container">

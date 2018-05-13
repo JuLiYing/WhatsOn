@@ -40,7 +40,7 @@ body {
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
 }
 
 .center {
@@ -52,9 +52,13 @@ img {
 // HEADER STYLES
 header {
     text-align: center;
-    margin: 2% auto;
+    margin: 1% auto;
 }
 
+header h1 {
+    font-size: 10rem;
+    margin: 0;
+}
 h1 {
     text-transform: uppercase;
     font-weight: bold;
@@ -66,10 +70,13 @@ form select.hidden {
     display: none;
 }
 
-fieldset {
+
+.fieldset {
     display: flex;
     flex-wrap: wrap;
     border: none;
+    margin: 0;
+    padding: 0;
 }
 
 input[type=radio] {
@@ -79,20 +86,20 @@ input[type=radio] {
 
 .genre label {
     position: relative;
-    display: inline-block;
     background: rgba(255, 255, 255, 0.1);
     border: 3px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height:  250px;
+    min-height: 250px;
     width: 30%;
     margin: 25px auto;
+    @media (max-width: 940px) {
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
-.genre span {
-    display: block;
-}
 input:checked + label {
     border:3px solid white;
     background: midnightblue;
@@ -102,16 +109,6 @@ input:focus + label,
 label:hover {
     color: white;
     background: midnightblue;
-}
-
-@media (max-width: 940px) {
-    .genre { 
-        flex-direction: column;
-    }
-
-    .genre label {
-        width: 60%;
-    }
 }
     
 
@@ -132,16 +129,33 @@ label:hover {
         border: 2px solid white;
         color: white;
         margin: 5px;
-    }
-}
+        }
+        option {
+            color: #000;
+        }
+        
+        @media (max-width: 1500px) {
+        width: 100%;
+        }
 
-input[type=submit] {
+        @media (max-width: 800px) {
+        text-align: left;
+        }
+    }
+
+
+
+
+.button {
     width: 30%;
-    margin: 0 auto;
+    margin: 10px auto;
     height: 50px;  
     background: none;
     border: 2px solid white;
     color: white;
+    @media (max-width: 1500px) {
+    width: 100%;
+    }
 }
 
 // RESULT CONTAINER STYLES
@@ -149,31 +163,36 @@ input[type=submit] {
     width: 100%;
     display: flex;
     justify-content: center;
-    border: none;;
+    border: none;
+    @media (max-width: 1500px) {
+    flex-direction: column;
+    }
+
     div {
         padding: 1%;
+        max-width: calc(100% / 3);
+        @media (max-width: 1500px) {
+        max-width: 80%;
+        }
     }
-}
 
-// added for maximum amount of characters for the overview text to ensure consistincy
-.tv-results p {
+    p {
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100ch;
-
+    }
 }
 
 .image-container{
     height: 600px;
-    max-width: 500px;
-}
-
-// BUTTON STYLES
-// .pick-again {
-    
-// }
-
-// .random
+    max-width:100%;
+    text-align: center;
+    @media (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+    }
 
 // FOOTER STYLES
 footer {
