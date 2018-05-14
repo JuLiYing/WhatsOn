@@ -74,6 +74,7 @@ form select.hidden {
 .fieldset {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     border: none;
     margin: 0;
     padding: 0;
