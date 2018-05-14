@@ -185,13 +185,18 @@ h1 {
 form select.hidden {
   display: none; }
 
-fieldset {
+.fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  border: none; }
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border: none;
+  margin: 0;
+  padding: 0; }
 
 input[type=radio] {
   opacity: 0;
@@ -199,16 +204,11 @@ input[type=radio] {
 
 .genre label {
   position: relative;
-  display: inline-block;
   background: rgba(255, 255, 255, 0.1);
   border: 3px solid white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -225,9 +225,6 @@ input[type=radio] {
       -ms-flex-direction: column;
       flex-direction: column;
       width: 100%; } }
-
-.genre span {
-  display: block; }
 
 input:checked + label {
   border: 3px solid white;
@@ -260,15 +257,14 @@ label:hover {
     border: 2px solid white;
     color: white;
     margin: 5px; }
+  .year option {
+    color: #000; }
   @media (max-width: 1500px) {
     .year {
       width: 100%; } }
   @media (max-width: 800px) {
     .year {
       text-align: left; } }
-
-option {
-  color: #000; }
 
 .button {
   width: 30%;
