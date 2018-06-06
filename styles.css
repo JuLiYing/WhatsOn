@@ -198,12 +198,13 @@ form select.hidden {
   margin: 0 auto;
   padding: 0; }
 
-#decadeForm,
-#year80,
-#year90,
-#year2000,
-#year2010 {
-  width: 97%; }
+@media (max-width: 1200px) {
+  #decadeForm,
+  #year80,
+  #year90,
+  #year2000,
+  #year2010 {
+    width: 97%; } }
 
 input[type=radio] {
   opacity: 0;
@@ -243,10 +244,13 @@ label:hover {
   background: midnightblue; }
 
 input[type=submit] {
-  width: 97%;
+  width: 30%;
   border: 3px solid white; }
   input[type=submit]:hover {
     background: midnightblue; }
+  @media (max-width: 1200px) {
+    input[type=submit] {
+      width: 97%; } }
 
 .year {
   -webkit-box-orient: vertical;

@@ -74,7 +74,9 @@ form select.hidden {
 #year90, 
 #year2000, 
 #year2010 {
-    width: 97%;
+    @media (max-width: 1200px) {
+        width: 97%;
+    }
 }
 
 input[type=radio] {
@@ -110,10 +112,13 @@ label:hover {
 }
 
 input[type=submit] {
-    width: 97%;
+    width: 30%;
     border:3px solid white;
     &:hover{
         background: midnightblue;
+    }
+    @media (max-width: 1200px) {
+        width: 97%;
     }
 }   
 
