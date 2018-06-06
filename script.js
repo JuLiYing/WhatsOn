@@ -1,10 +1,3 @@
-// URL: https://api.themoviedb.org/3/movie/550?api_key=4596c01cc129c0cbf8d2d1ac4cf4b6fe
-// KEY: 4596c01cc129c0cbf8d2d1ac4cf4b6fe
-// USERNAME: LiYingCodes
-// PW:juliying
-// DEVLINK: https://developers.themoviedb.org/3/discover/tv-discover
-
-
 //Main app object
 const app = {};
 //Declaring properties that will be reused
@@ -12,19 +5,19 @@ app.baseURL = 'https://api.themoviedb.org/3';
 app.apiKey = '4596c01cc129c0cbf8d2d1ac4cf4b6fe';
 
 // Hidden items
-$(".other").hide();
-$("#otherThree").hide();
+$('.other').hide();
+$('#otherThree').hide();
 $('.pick-again').hide();
 // Method for requesting information from MovieDB API
 app.getTV = function (selectedGenre, selectedYear) {
     $.ajax({
         url: `${app.baseURL}/discover/tv`,
-        method: "GET",
-        dataType: "json",
+        method: 'GET',
+        dataType: 'json',
         data: {
             api_key: app.apiKey,
-            language: "en-US",
-            sort_by: "popularity.desc",
+            language: 'en-US',
+            sort_by: 'popularity.desc',
             with_genres: selectedGenre, // genre parameter
             first_air_date_year: selectedYear // year parameter
         }
@@ -68,14 +61,14 @@ app.displayTV = function (tv) {
 app.displayOtherTV = function (tv) {
     tv.forEach(tvShow => {
         const $poster = $('<img class="image-container">').attr(
-            "src",
+            'src',
             `https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`
         );
-        const $title = $("<h2>").text(tvShow.name);
-        const $overview = $("<p>").text(tvShow.overview);
-        const $released = $("<h3>").text(tvShow.first_air_date);
-        const $TVContainer = $("<div>").append($poster, $title, $released, $overview);
-        $("#otherThree").append($TVContainer);
+        const $title = $('<h2>').text(tvShow.name);
+        const $overview = $('<p>').text(tvShow.overview);
+        const $released = $('<h3>').text(tvShow.first_air_date);
+        const $TVContainer = $('<div>').append($poster, $title, $released, $overview);
+        $('#otherThree').append($TVContainer);
     });
 };
 
@@ -99,16 +92,16 @@ app.events = function () {
     // Toggle the class of hidden on the year dropdown corresponding to the decade dropdown
     $('#decadeForm').change(function () {
         let val = $('#decadeForm').val();
-        $(".yearForm").addClass("hidden");
+        $('.yearForm').addClass('hidden');
         if (val) {
-            $('#year' + val).toggleClass("hidden");
+            $('#year' + val).toggleClass('hidden');
         }
     });
 }
 
 // Event listeners to listen for when user prefers other titles
 $('.other').on('click', function () {
-    $(".recOthers").html(`<h1>Or maybe...</h1>`);
+    $('.recOthers').html(`<h1>Or maybe...</h1>`);
     $('#otherThree').show();
     $('.pick-again').show();
 });
