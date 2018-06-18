@@ -49,6 +49,10 @@ header h1 {
     margin: 0;
 }
 
+header p {
+    margin: 12px auto;
+}
+
 h1 {
     text-transform: uppercase;
     font-weight: bold;
@@ -91,9 +95,9 @@ input[type=radio] {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 250px;
+    min-height: 240px;
     width: 30%;
-    margin: 25px auto;
+    margin: 20px auto;
     @media (max-width: 940px) {
         flex-direction: column;
         width: 100%;
@@ -176,21 +180,22 @@ input[type=submit] {
     justify-content: center;
     border: none;
     @media (max-width: 1500px) {
-    flex-direction: column;
-    }
+        flex-direction: column;
+        }
 
     div {
         padding: 1%;
         max-width: calc(100% / 3);
         @media (max-width: 1500px) {
-        max-width: 80%;
+            max-width: 80%;
+            }
         }
-    }
 
-    p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    }
+    .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        }
 }
 
 .image-container{
@@ -212,7 +217,7 @@ footer {
     padding: 0;
     p {
         padding: 0;
-        // margin: 0;
+        margin: 0;
     }
 }
 
