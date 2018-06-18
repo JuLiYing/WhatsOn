@@ -4,17 +4,6 @@
 $background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 $josefin: 'Josefin Sans', sans-serif;
 
-// // MIXINS
-// @mixin for-phone-only {
-//   @media (max-width: 599px) { @content; }
-// }
-// @mixin for-tablet-portrait-up {
-//   @media (min-width: 600px) { @content; }
-// }
-// @mixin for-tablet-landscape-up {
-//   @media (min-width: 900px) { @content; }
-// }
-
 // GENERAL STYLES
 html {
   font-size: 62.5%;
@@ -52,13 +41,18 @@ img {
 // HEADER STYLES
 header {
     text-align: center;
-    margin: 1% auto;
+    margin: 0 auto;
 }
 
 header h1 {
     font-size: 10rem;
     margin: 0;
 }
+
+header p {
+    margin: 12px auto;
+}
+
 h1 {
     text-transform: uppercase;
     font-weight: bold;
@@ -70,14 +64,23 @@ form select.hidden {
     display: none;
 }
 
-
 .fieldset {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     border: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+}
+
+#decadeForm, 
+#year80, 
+#year90, 
+#year2000, 
+#year2010 {
+    @media (max-width: 1200px) {
+        width: 97%;
+    }
 }
 
 input[type=radio] {
@@ -92,9 +95,9 @@ input[type=radio] {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 250px;
+    min-height: 240px;
     width: 30%;
-    margin: 25px auto;
+    margin: 20px auto;
     @media (max-width: 940px) {
         flex-direction: column;
         width: 100%;
@@ -111,7 +114,17 @@ label:hover {
     color: white;
     background: midnightblue;
 }
-    
+
+input[type=submit] {
+    width: 30%;
+    border:3px solid white;
+    &:hover{
+        background: midnightblue;
+    }
+    @media (max-width: 1200px) {
+        width: 97%;
+    }
+}   
 
 // DROPDOWN STYLES
 .year {
@@ -136,11 +149,12 @@ label:hover {
         }
         
         @media (max-width: 1500px) {
-        width: 100%;
+            width: 100%;
+            
         }
 
         @media (max-width: 800px) {
-        text-align: left;
+            text-align: left;
         }
     }
 
@@ -166,21 +180,22 @@ label:hover {
     justify-content: center;
     border: none;
     @media (max-width: 1500px) {
-    flex-direction: column;
-    }
+        flex-direction: column;
+        }
 
     div {
         padding: 1%;
         max-width: calc(100% / 3);
         @media (max-width: 1500px) {
-        max-width: 80%;
+            max-width: 80%;
+            }
         }
-    }
 
-    p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    }
+    .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        }
 }
 
 .image-container{
@@ -199,6 +214,11 @@ label:hover {
 footer {
     border-top: 1px dotted white;
     text-align: center;  
+    padding: 0;
+    p {
+        padding: 0;
+        margin: 0;
+    }
 }
 
 

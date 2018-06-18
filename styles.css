@@ -171,11 +171,14 @@ img {
 
 header {
   text-align: center;
-  margin: 1% auto; }
+  margin: 0 auto; }
 
 header h1 {
   font-size: 10rem;
   margin: 0; }
+
+header p {
+  margin: 12px auto; }
 
 h1 {
   text-transform: uppercase;
@@ -195,8 +198,16 @@ form select.hidden {
   -ms-flex-pack: start;
   justify-content: flex-start;
   border: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0; }
+
+@media (max-width: 1200px) {
+  #decadeForm,
+  #year80,
+  #year90,
+  #year2000,
+  #year2010 {
+    width: 97%; } }
 
 input[type=radio] {
   opacity: 0;
@@ -215,9 +226,9 @@ input[type=radio] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: 250px;
+  min-height: 240px;
   width: 30%;
-  margin: 25px auto; }
+  margin: 20px auto; }
   @media (max-width: 940px) {
     .genre label {
       -webkit-box-orient: vertical;
@@ -234,6 +245,15 @@ input:focus + label,
 label:hover {
   color: white;
   background: midnightblue; }
+
+input[type=submit] {
+  width: 30%;
+  border: 3px solid white; }
+  input[type=submit]:hover {
+    background: midnightblue; }
+  @media (max-width: 1200px) {
+    input[type=submit] {
+      width: 97%; } }
 
 .year {
   -webkit-box-orient: vertical;
@@ -298,10 +318,11 @@ label:hover {
     @media (max-width: 1500px) {
       .tv-results div {
         max-width: 80%; } }
-  .tv-results p {
+  .tv-results .truncate {
     overflow: hidden;
     -o-text-overflow: ellipsis;
-    text-overflow: ellipsis; }
+    text-overflow: ellipsis;
+    white-space: nowrap; }
 
 .image-container {
   height: 600px;
@@ -325,4 +346,8 @@ label:hover {
 
 footer {
   border-top: 1px dotted white;
-  text-align: center; }
+  text-align: center;
+  padding: 0; }
+  footer p {
+    padding: 0;
+    margin: 0; }
